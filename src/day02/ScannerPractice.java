@@ -10,7 +10,7 @@ public class ScannerPractice {
         System.out.println("**** 상품 재고 총액 구하기 ****");
 
         System.out.print("-상품의 가격 : ");
-        int price = Integer.parseInt(scan.nextLine());
+        int price = Integer.parseInt(scan.nextLine()); // 정수로 받아야 하는 값 변환해주기
 
         System.out.print("-상품의 수량 : ");
         int count = Integer.parseInt(scan.nextLine());
