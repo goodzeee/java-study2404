@@ -14,5 +14,11 @@ public class Main {
 
         System.out.println(month + "월 " + day + "일은 " + vote + "입니다."); //ln - line
         System.out.printf("%d월 %d일은 %s입니다.\n", month, day, vote); //f - \n 따로 줄바꿈
+
+
+        int x = 10, y = 20;
+        // 논리 연산자
+        System.out.println(x > 10 && (y / 0 == 10)); //false
+        System.out.println(x > 10 || y < 30); //true
     }
 }
