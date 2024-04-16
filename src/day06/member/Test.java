@@ -30,7 +30,7 @@ public class Test {
 
         MemberView mv = new MemberView();
 
-       Member newMember = new Member("aaa@gamil.com", "3333", "콩순이", "여성", 9);
+        Member newMember = new Member("aaa@gamil.com", "3333", "콩순이", "여성", 9);
         mr.addNewMember(newMember);
 
         mv.showMembers();

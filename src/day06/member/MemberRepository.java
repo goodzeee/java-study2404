@@ -14,7 +14,7 @@ public class MemberRepository {
         members[2] = new Member("gugu@naver.com", "9999", "둘기찡", "남성", 25);
     }
 
-    // 메서드 - 회원정보 생성
+    // 메서드 - 생성된 회원정보를 회원 배열 끝에 추가하는 기능
     void addNewMember (Member newMember) {
         // 추가된 회원정보 넣을 배열 +1 해주기
         Member[] temp = new Member[members.length + 1];
@@ -23,5 +23,19 @@ public class MemberRepository {
         }
         temp[temp.length - 1] = newMember;
         members = temp;
+    }
+
+    /**
+     * 이메일 중복 확인하는 기능
+     * @param targetEmail - 검사할 사용자의 입력 이메일 값
+     * @return - 이메일이 중복인지 참거짓으로 확인
+     */
+    boolean isDuplicateEmail(String targetEmail) {
+        for(Member m : members) {
+            if (targetEmail.equals(m.email)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
