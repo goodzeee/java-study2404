@@ -1,5 +1,7 @@
 package day06.member;
 
+import day03.MethodBasic;
+
 public class Test {
 
     public static void main(String[] args) {
@@ -17,5 +19,20 @@ public class Test {
         System.out.println("m2 = " + m2);
 
         Member[] members = {m1, m2}; // Member 타입에 members 배열 안에 객체 2개
+
+        System.out.println("=============================================");
+        for (Member m : members) {
+            System.out.println(m.memberName);
+        }
+
+        System.out.println("==========================================");
+        MemberRepository mr = new MemberRepository();
+
+        MemberView mv = new MemberView();
+
+       Member newMember = new Member("aaa@gamil.com", "3333", "콩순이", "여성", 9);
+        mr.addNewMember(newMember);
+
+        mv.showMembers();
     }
     }
