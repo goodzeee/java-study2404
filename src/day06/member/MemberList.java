@@ -2,6 +2,7 @@ package day06.member;
 
 public class MemberList {
 
+    // mArr 회원정보를 담는 배열에 접근할 때 default로 줘서 접근 제한 주기 !
     Member[] mArr;
 
     MemberList() {
