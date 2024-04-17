@@ -19,11 +19,11 @@ public class Main {
        // Student 클래스 테스트
         Student student = new Student(); // 빈공간으로 해서 생성자 없어도 됨.
         student.setName("박영희");
-        student.setStudentId("S001");
-        student.setDepartment("Computer Science");
-        System.out.println("학생 이름: " + student.getName());
-        System.out.println("학번: " + student.getStudentId());
-        System.out.println("전공: " + student.getDepartment());
+//        student.setStudentId("S001");
+//        student.setDepartment("Computer Science");
+//        System.out.println("학생 이름: " + student.getName());
+//        System.out.println("학번: " + student.getStudentId());
+//        System.out.println("전공: " + student.getDepartment());
 
         // Car 클래스 테스트
 //        Car myCar = new Car();
