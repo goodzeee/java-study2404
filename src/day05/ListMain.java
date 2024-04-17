@@ -2,6 +2,7 @@ package day05;
 
 public class ListMain {
     public static void main(String[] args) {
+        //메인에서 클래스 StringList에 sArr 배열 불러와서 사용됨 !!
         StringList foods = new StringList(); //배열이 아닌 객체. 객체 안에 배열이 있는 것으로 foods.length라고 하면 안됨.
         StringList userNames = new StringList();
 

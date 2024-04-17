@@ -1,22 +1,29 @@
 package day06.member;
 
+import java.util.Arrays;
+
 // 역할: 회원 배열을 관리하는 역할 - 회원 데이터 저장소
 public class MemberRepository {
 
     // 필드
+    // 배열 형식 [] 대괄호 !
 //    static Member[] members; // 현재 관리되는 회원 배열
 //    static Member[] restoreList; // 삭제된 회원들이 모일 배열
 
+    // MemberList에 있는 mArr 배열을 가져와 사용.
+    // members = { mArr: [{},{},{}] }
+    // members는 객체 형식 () 소괄호 !
     MemberList members;
     MemberList restoreList;
 
     // 생성자
     MemberRepository() {
-//        this.members = new Member[3];
+//        this.members = new Member[3]; 배열 형식으로 넣어주고 시작
 //        members[0] = new Member("abc@def.com", "1234", "콩순이", "여성", 50);
 //        members[1] = new Member("ghi@def.com", "5432", "팥돌이", "남성", 40);
 //        members[2] = new Member("xyz@def.com", "7890", "팥죽이", "여성", 30);
 
+        // 객체 형식 빈 공간 만들어주고 시작 @@
         this.members = new MemberList();
         members.push(new Member("abc@def.com", "1234", "콩순이", "여성", 50));
         members.push(new Member("ghi@def.com", "5432", "팥돌이", "남성", 40));
@@ -101,6 +108,25 @@ public class MemberRepository {
 //        }
 //        members = temp;
 
-        members.remove(index);
+        // members 배열에서 삭제 후 삭제된 member 를 리턴 받음.
+        Member removed = members.remove(index);
+        restoreList.push(removed);
+
+//        System.out.println(Arrays.toString(members.mArr));
+//        System.out.println(Arrays.toString(restoreList.mArr));
+    }
+
+
+    public Member findRestoreMemberByEmail(String inputEmail) {
+
+        return restoreList.get(inputEmail);
+    }
+
+    public void restore(String inputEmail) {
+
+        int index = restoreList.findIndex(inputEmail);
+        // member 배열에서 삭제 된 회원정보를 저장해둔 정보를 복구 시켜주기
+        Member removed = restoreList.remove(index);
+        members.push(removed);
     }
 }

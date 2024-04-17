@@ -29,6 +29,7 @@ public class MemberList {
     // 한 명의 회원 정보 얻기
     Member get(String email) {
         int index = findIndex(email);
+        if (index == -1) return null; // -1 null로 처리해서 안전하게 !
         return get(index);
     }
     Member get(int index) {
@@ -49,7 +50,7 @@ public class MemberList {
 
     // 회원 정보 삭제
     Member remove(int index) {
-        // 삭제 대상 백업
+        // 삭제 대상 백업 - 삭제 전 대상 꺼내놓기 !
         Member removedMember = mArr[index];
         for (int i = index; i < mArr.length - 1; i++) {
             mArr[i] = mArr[i + 1];
