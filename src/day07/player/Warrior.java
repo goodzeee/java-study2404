@@ -3,7 +3,7 @@ package day07.player;
 // 하위 클래스 (sub class)
 // 부모 클래스인 Player 공통 필드와 메서드 상속 받는 클래스 !!
 public class Warrior extends Player {
-    // 필드
+
 //    String nickname;
 //    int level;
 //    int hp;
@@ -27,5 +27,19 @@ public class Warrior extends Player {
 
     public void dash(Warrior target) {
         System.out.println("dash 스킬이 필요합니다.");
+    }
+
+    // 오버라이딩 : 부모가 물려준 메서드를 고쳐 쓰는 것.
+    // 규칙 - 부모가 물려준 형태 유지할 것(접근제한, 리턴타입, 이름, 파라미터..)
+    //       접근 제한자는 부모보다 more public 할 것 !
+    public void showStatus() {
+//        System.out.println("\n==========Character's Info============");
+//        System.out.println("#name : " + this.nickname);
+//        System.out.println("#level : " + this.level);
+//        System.out.println("#hp : " + this.hp);
+
+        // 부모가 물려준 showStatus 메서드
+        super.showStatus();  // 나머지 출력 담고 있음.
+        System.out.println("#rage : " + this.rage);
     }
 }

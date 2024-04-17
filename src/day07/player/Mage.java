@@ -23,6 +23,12 @@ public class Mage extends Player {
 //        System.out.println("#hp : " + this.hp);
 //    }
 
+    @Override // 오버라이딩 규칙을 지켰는지 검증해주는 안전장치
+    public void showStatus() {
+        super.showStatus();
+        System.out.println("#mana : " + this.mana);
+    }
+
     public void thunderBolt(Mage...targets) {
 
     }

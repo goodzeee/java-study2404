@@ -22,6 +22,11 @@ public class Hunter extends Player {
 //        System.out.println("#hp : " + this.hp);
 //    }
 
+    public void showStatus() {
+        super.showStatus();
+        System.out.println("#concentration : " + this.concentration);
+    }
+
     public void multipleArrow() {
 
     }
