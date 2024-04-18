@@ -1,8 +1,8 @@
 package day08.static_;
 
-import util.SimpleInput;
+import day08.static_.quiz1.Department;
+
 import static day08.static_.Count.*;
-import static util.SimpleInput.input;
 
 public class Main {
     public static void main(String[] args) {
@@ -40,7 +40,6 @@ public class Main {
         blueCal.paint("blue");
 
         //String color = input("색상 : ");
-
         System.out.println("===============================================");
 
         System.out.println(Person.nation);
@@ -49,5 +48,18 @@ public class Main {
         System.out.println(kang.name);
         System.out.println(kang.age);
         System.out.println(kang.nation);
+        System.out.println("===============================================");
+
+//        Department compSci = new Department("컴퓨터 과학", 200);
+//        Department biology = new Department("생물학", 150);
+//        Department chemistry = new Department("화학", 120);
+//
+//        compSci.addStudent(30);
+//        biology.addStudent(20);
+//
+//        System.out.println("컴퓨터 과학과 학생 수: " + compSci.getStudentCount());
+//        System.out.println("생물학과 학생 수: " + biology.getStudentCount());
+//        System.out.println("화학과 학생 수: " + chemistry.getStudentCount());
+//        System.out.println("전체 학생 수: " + Department.getTotalStudents());
     }
 }
