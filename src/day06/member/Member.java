@@ -11,7 +11,7 @@ public class Member {
     String email;
     String memberName;
     String password;
-    String gender;
+    String gender;  // 성별 - 고정된 2개만 존재하니 상수로 사용 !
     int age;
     LocalDate regDate; // 회원가입일자
 
