@@ -11,9 +11,10 @@ public class Warrior extends Player {
 
     // 생성자
     public Warrior(String nickname) {
-        this.nickname = nickname;
-        this.level = 1;
-        this.hp = 50;
+//        this.nickname = nickname;
+//        this.level = 1;
+//        this.hp = 50;  // 상위 클래스 생성자에 존재하니 super(파라미터); 로 주기 !
+        super(nickname);
         this.rage = 100;
     }
 
