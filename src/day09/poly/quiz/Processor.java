@@ -1,7 +1,8 @@
 package day09.poly.quiz;
 
-public class Processor extends ComputerPart {
+class Processor extends ComputerPart {
 
+    // 상속 받으면 자식에게 생성자 생성 기본 !!
     public Processor(String partName, int partPrice) {
         super(partName, partPrice);
     }

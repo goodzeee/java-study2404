@@ -56,5 +56,9 @@ public class Main {
 
         Car ttt = new Tucson();
         Tucson tts = (Tucson) ttt;
+
+        dirver.drive(new Tucson()); // false
+        dirver.drive(new Sonata()); // true
+
     }
 }
