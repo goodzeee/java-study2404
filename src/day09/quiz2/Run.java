@@ -7,7 +7,7 @@ public class Run {
 
         LibraryView view = new LibraryView();
         view.makeNewBookUser();
-        view.showProgramMenu();
+        view.showMainScreen();
         view.start();
     }
 }
