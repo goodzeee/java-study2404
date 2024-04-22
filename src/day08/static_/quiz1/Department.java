@@ -2,7 +2,7 @@ package day08.static_.quiz1;
 
 public class Department {
 
-    private static Department tot = new Department();
+    //private static Department tot = new Department();
 
     private String departmentName;  // 학과 이름
     private int studentCount;    // 학과별 학생 수
