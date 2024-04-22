@@ -1,6 +1,7 @@
 package day10.inter.animal;
 
-public class Rabbit implements Pet, Wild {
+// Animal 나이를 갖는 추상 클래스 부모로 받기 !
+public class Rabbit extends Animal implements Pet, Wild {
 
     // 애완동물로 가능
     @Override

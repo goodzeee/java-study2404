@@ -1,5 +1,7 @@
 package day10.abs;
 
+import day10.inter.animal.Aggressive;
+
 public class Cat extends Pet {
 
 //    String name;

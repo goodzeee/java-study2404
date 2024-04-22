@@ -1,7 +1,7 @@
 package day10.inter.animal;
 
 // 다중 부모 상속 받을 수 있음
-public class BullDog implements Pet, Huntable, Wild {
+public class BullDog extends Animal implements Pet, Aggressive {
 
     // 애완동물로 가능
     @Override

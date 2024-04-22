@@ -1,6 +1,6 @@
 package day10.inter.animal;
 
-public class Shark implements Huntable, Wild {
+public class Shark extends Animal implements Aggressive {
 
     // 사냥 기능
     @Override
