@@ -46,4 +46,41 @@ public class FilterApple {
         return filteredApples;
     }
 
+    /** 자바에선 파라미터 안에 함수를 넣을 순 없어
+     * @solution - 3. 동작(메서드)을 추상화시켜 파라미터화 한다.
+     * @param basket
+     * @return
+     * @problem - 필터링 대상이 사과가 아니라 오렌지면 ? 학생이면 ?
+     */
+    // 필터링 조건을 파라미터화할 수 없을까 ??
+    // 함수를 객체로 싸서 보내기 ==> interface Foo 만들어서 추상화 -> 구체화하여 사용하삼
+    public static List<Apple> filterApples(List<Apple> basket, ApplePredicate p) {
+        List<Apple> filteredApples = new ArrayList<>();
+        // 반복문과 조건문을 통해 필터링
+        for (Apple apple : basket) {
+            if (p.test(apple)) {
+                filteredApples.add(apple);
+            }
+
+        }
+        return filteredApples;
+    }
+
+    /**
+     *
+     * @param basket - 4. 여러 객체들을 필터링
+     * @param p
+     * @return
+     */ // 특정 만들어논 클래스 말고 받는거에 따라 달라지도록 !
+    public static <T> List<T> filter(List<T> basket, GenericPredicate<T> p) {
+        List<T> filteredList = new ArrayList<>();
+        // 반복문과 조건문을 통해 필터링
+        for (T t : basket) {
+            if (p.test(t)) {
+                filteredList.add(t);
+            }
+        }
+        return filteredList;
+    }
 }
+
