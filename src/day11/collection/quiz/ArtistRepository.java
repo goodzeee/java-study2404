@@ -1,5 +1,8 @@
 package day11.collection.quiz;
 
+import day12.io.FileExample;
+
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -11,6 +14,8 @@ public class ArtistRepository {
     // key : 가수이름, value : 가수 객체 (가수명, 노래리스트 )
     private Map<String, Artist> artistMap = new HashMap<>();
 
+    // 세이브 파일 위치 경로 지정
+    public static final String SAVE_PATH = FileExample.ROOT_PATH + "/java/song.txt";
 
     // 가수 정보 생성 ..
 
@@ -41,6 +46,33 @@ public class ArtistRepository {
         // map에서 기존 가수 정보 가져오기
         Artist foundArtist = artistMap.get(artistName);
         return foundArtist.getSongList();
+    }
+
+    public void save() {
+        // 입력한 내용을 세이브 파일 만들어서 거기다 넣어주기
+        try (FileOutputStream fos = new FileOutputStream(SAVE_PATH)){
+
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(artistMap);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void load() {
+        // 다시 실행시켜도 저장된 내용 유지되어 있게 해줘 !!
+        File file = new File(SAVE_PATH);
+        if (file.exists()) {  // 이 파일이 존재하면 실행시켜라 ~
+            try (FileInputStream fis = new FileInputStream(SAVE_PATH)) {
+                ObjectInputStream ois = new ObjectInputStream(fis);
+                this.artistMap = (Map<String, Artist>) ois.readObject();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     // 가수 정보 탐색 .. 로직

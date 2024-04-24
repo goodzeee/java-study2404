@@ -16,13 +16,13 @@ public class FileInputExample {
         try (FileInputStream fis = new FileInputStream(FileExample.ROOT_PATH + "/java/pet.txt")) {
 
             int data = 0;// 세이브 파일 로드 명령
-            while (data != -1) {  // read() -> -1이 될 때까지 파일 내용 출력되도록 반복되는 코드임.
-                data = fis.read();
+            while ((data = fis.read()) != -1) {  // read() -> -1이 될 때까지 파일 내용 출력되도록 반복되는 코드임.
+                // data = fis.read();
                 // 아스키코드를 문자로 출력하는 문
                 System.out.write(data);
             }
-
-
+            // 출력 버퍼 비우기 (일부만 채워져도 다 나오게 해주는)
+            System.out.flush();
 
         } catch (FileNotFoundException e) {
             System.out.println("해당 파일 경로를 찾을 수 없습니다.");

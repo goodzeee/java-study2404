@@ -1,10 +1,11 @@
 package day11.collection.quiz;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 // 1개의 가수 정보
-public class Artist {
+public class Artist implements Serializable {
 
     // 가수 필드
     private String artistName;
