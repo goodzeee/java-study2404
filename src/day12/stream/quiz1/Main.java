@@ -1,8 +1,10 @@
 package day12.stream.quiz1;
 
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toList;
 
 public class Main {
@@ -67,7 +69,7 @@ public class Main {
                 .anyMatch(m -> m.getTrader().getCity().equalsIgnoreCase("Milan")); //대소문자 무시하며 동등 비교
         System.out.println("flag1 = " + flag1);
 
-        
+
         // 연습 6: Cambridge에 사는 거래자의 모든 거래액의 총합 출력.
         int totalSum = transactions.stream()
                 .filter(n -> n.getTrader().getCity().equals("Cambridge"))
@@ -117,7 +119,6 @@ public class Main {
         System.out.println("average = " + average);
 
 
-
         // 연습 11. "Cambridge"에서 거래하는 모든 거래자의 거래액을 연도별로 그룹화하여 출력하시오.
         Map<Integer, List<Transaction>> groupByYearMap = new HashMap<>();
 
@@ -136,11 +137,18 @@ public class Main {
         System.out.println("=====================");
         for (Integer year : groupByYearMap.keySet()) {
             System.out.println("year = " + year);
-            for (Transaction transaction : groupByYearMap.get(year)) {
+            for (Transaction transaction : groupByYearMap.get(year)) {  // map.get(키명) -> 값이 나옴
                 System.out.println(transaction);
             }
-        }
 
+            // 집계할 때 편리하게 사용할 방법
+            Map<Integer, List<Transaction>> cambrige = transactions.stream()
+                    .filter(t -> t.getTrader().getCity().equals("Cambrige"))
+                    .collect(Collectors.groupingBy(t -> t.getYear())); // groupingBy() 자동으로 키가 연도가 되고 해당 연도에 맞는 객체를 리스트로 출력.
+                    cambrige.forEach((key, value) -> {
+                        System.out.println("year = " + key);
+                        value.forEach(System.out::println);
+                    });
 
         /*
                출력예시
@@ -155,9 +163,9 @@ public class Main {
          */
 
 
-
-        // 연습 12. 모든 거래 중 가장 큰 거래액과 가장 작은 거래액의 차이를 계산하시오.
-        // 출력 값 : 700
-        System.out.println(maxValue - minValue2);
+            // 연습 12. 모든 거래 중 가장 큰 거래액과 가장 작은 거래액의 차이를 계산하시오.
+            // 출력 값 : 700
+            System.out.println(maxValue - minValue2);
+        }
     }
 }
