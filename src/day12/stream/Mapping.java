@@ -37,5 +37,33 @@ public class Mapping {
                 .collect(Collectors.toList());
 
         simpleDishes.forEach(dd -> System.out.println(dd));
+        System.out.println("===============================================================");
+        /*
+            메뉴 목록에서 칼로리가 500칼로리보다 큰
+            음식들을 필터링한 다음에 음식의 이름과 타입만
+            추출해서 출력해주세요.
+            단, 타입은 MEAT 는 육류라고 FISH 는 어류라고 OTHER 는 기타로 저장 -> 새로운 클래스 생성
+         */
+        List<DishDetail> dishDetails = menuList.stream()
+                .filter(d -> d.getCalories() > 500)
+                .map(dish -> new DishDetail(dish))
+                .collect(Collectors.toList());
+
+        System.out.println(dishDetails);
+
+        // 메뉴 목록에 있는 요리들의 총 칼로리 수 구하기
+
+        int sum = menuList.stream()
+                .mapToInt(c -> c.getCalories()) // mapToInt -> sum 총합 사용할 수 있음
+                .sum();
+        System.out.println("sum = " + sum);   // 4300
+
+        // 육류 메뉴의 평균 칼로리
+        double avgMeatCalories = menuList.stream()
+                .filter(d -> d.getType() == Dish.Type.MEAT)
+                .mapToInt(c -> c.getCalories())
+                .average() // 평균 구하기
+                .getAsDouble(); // 실수로 나오게 하기
+        System.out.println("avgMeatCalories = " + avgMeatCalories);
     }
 }

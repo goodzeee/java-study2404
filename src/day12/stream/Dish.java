@@ -9,7 +9,16 @@ public class Dish {
     private final Type type; // 요리 카테고리
 
     public enum Type {
-        MEAT, FISH, OTHER
+        MEAT("육류"), FISH("어류"), OTHER("기타");
+        private final String desc;  // 문자열 저장할 수 있는 필드, 생성자, 게터 만들기
+
+        Type(String desc) {
+            this.desc = desc;
+        }
+
+        public String getDesc() {
+            return desc;
+        }
     }
 
     public Dish(String name, boolean vegeterian, int calories, Type type) {
