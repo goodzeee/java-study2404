@@ -180,4 +180,8 @@ public class MemberView {
             System.out.println("\n# 해당 회원은 복구대상이 아닙니다.");
         }
     }
+
+    public void load() {
+        mr.loadFile();
+    }
 }

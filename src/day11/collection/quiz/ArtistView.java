@@ -13,6 +13,7 @@ public class ArtistView {
 
     // 메뉴를 출력해주는 기능
     public static void showMenu() {
+        repository.load(); // 세이브 파일 읽어줘 (저장되어 있게 하기)
         System.out.println("\n*************** 음악 관리 프로그램 **************");
         System.out.printf("# 현재 등록된 가수 : %d명\n", repository.count());
         System.out.println("# 1. 노래 등록하기");
@@ -63,6 +64,11 @@ public class ArtistView {
                 System.out.printf("\n# [%s]곡은 이미 등록된 노래입니다.\n", songName);
             }
         }
+
+        // 등록된 내용 세이브 파일에 저장하기
+        repository.save();
+
+
     }
 
     // 2 노래 정보 검색
